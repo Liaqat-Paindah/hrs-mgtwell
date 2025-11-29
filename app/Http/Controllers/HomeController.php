@@ -100,6 +100,10 @@ class HomeController extends Controller
         return view('dashboard.dashboard', compact('employees6', 'projects', 'months', 'totalSalaries', 'staffCounts', 'active_employees', 'inactive_employees', 'active_percentage', 'inactive_percentage', 'AVG', 'total_leaves', 'pendding_leaves', 'recentLeaves', 'leave_progress'));
     }
 
+
+
+    
+
     public function generatePDF(Request $request)
     {
         // $data = ['title' => 'Welcome to ItSolutionStuff.com'];

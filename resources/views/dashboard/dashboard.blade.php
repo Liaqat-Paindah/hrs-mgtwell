@@ -1,5 +1,15 @@
 @php
     use Carbon\Carbon;
+    // Set default values for variables that might be undefined
+    $active_employees = $active_employees ?? 0;
+    $inactive_employees = $inactive_employees ?? 0;
+    $active_percentage = $active_percentage ?? 0;
+    $inactive_percentage = $inactive_percentage ?? 0;
+    $AVG = $AVG ?? 0;
+    $total_leaves = $total_leaves ?? 0;
+    $pendding_leaves = $pendding_leaves ?? 0;
+    $recentLeaves = $recentLeaves ?? collect();
+    $leave_progress = $leave_progress ?? collect();
 @endphp
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
