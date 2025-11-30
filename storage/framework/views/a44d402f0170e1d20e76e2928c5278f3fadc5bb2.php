@@ -42,6 +42,7 @@
                 <li class="submenu">
                     <a href="#"><i class="la la-project-diagram"></i> <span>Project Management</span> <span class="menu-arrow"></span></a>
                     <ul style="display: none;">
+                        <li><a href="<?php echo e(url('/project/allocations')); ?>">Projects</a></li>
                         <li><a href="<?php echo e(url('/project/allocations')); ?>">Staff Allocations</a></li>
                         <li><a href="<?php echo e(url('/donor/reports')); ?>">Donor Reports</a></li>
                         <li><a href="<?php echo e(url('/project/tracking')); ?>">Project Tracking</a></li>
