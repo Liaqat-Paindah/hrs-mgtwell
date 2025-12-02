@@ -7,8 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\Attendance;
 use App\Models\User;
 use App\Models\LeavesAdmin;
-
-
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Employee extends Model
 {
@@ -30,7 +29,7 @@ class Employee extends Model
     'employment_type',
     'start_date',
     'end_date',
-    'employment_status',
+    'account_status',
     'project',
     'current_address',
     'work_station',
@@ -81,5 +80,26 @@ class Employee extends Model
     public function departmentHead()
     {
         return $this->hasOne(department::class, 'department_head_id');
+    }
+
+    public function projectAssignments(): HasMany
+    {
+        return $this->hasMany(ProjectAssignment::class, 'employee_id');
+    }
+
+    /**
+     * Get projects managed by this employee
+     */
+    public function managedProjects(): HasMany
+    {
+        return $this->hasMany(Project::class, 'project_manager_id');
+    }
+
+    /**
+     * Accessor for full name (since you have separate name and fname)
+     */
+    public function getFullNameAttribute()
+    {
+        return $this->name . ' ' . $this->fname;
     }
 }

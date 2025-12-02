@@ -10,9 +10,11 @@ use App\Http\Controllers\UserManagementController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\LockScreen;
+use App\Http\Controllers\OrganizationChartController;
+use App\Http\Controllers\OrganizationController;
 use App\Http\Controllers\PayrollController;
 use App\Http\Controllers\PerformanceController;
-
+use App\Http\Controllers\ProjectController;
 
 /*
 |--------------------------------------------------------------------------
@@ -80,6 +82,9 @@ Route::post('/register', [App\Http\Controllers\Auth\RegisterController::class, '
 Route::group(['middleware' => ['auth', 'role_name:Admin']], function () {
     // ------------------------------ Employees ---------------------------------//
     // ----------------------------- user userManagement -----------------------//
+    Route::get('/project/allocations', [ProjectController::class, 'projectAllocations'])->name('project.allocations');
+    Route::get('/project/employee-list/{project_id}', [ProjectController::class, 'getProjectEmployees'])->name('project.employees');
+    Route::get('/organization/chart', [OrganizationChartController::class, 'organizationChart'])->name('organization.chart');
     Route::get('profile_user/{rec_id}', [App\Http\Controllers\UserManagementController::class, 'profile'])->middleware('auth')->name('profile_user');
     Route::get('userManagement', [App\Http\Controllers\UserManagementController::class, 'index'])->middleware('auth')->name('userManagement');
     Route::post('form/user/confirm', [App\Http\Controllers\UserManagementController::class, 'UserAdmin'])->middleware('auth')->name('form/user/confirm');
