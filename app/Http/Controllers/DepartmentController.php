@@ -6,9 +6,8 @@ use App\Models\department;
 use Brian2694\Toastr\Facades\Toastr;
 
 
-use DB;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\DB;
 
 class DepartmentController extends Controller
 {

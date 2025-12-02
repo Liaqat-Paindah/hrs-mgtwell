@@ -12,7 +12,7 @@
                         <h3 class="account-title">Login</h3>
                         <p class="account-subtitle">Access to our dashboard</p>
                         <!-- Account Form -->
-                        <form method="POST" action="<?php echo e(route('login')); ?>">
+                        <form method="POST" action="<?php echo e(url('login')); ?>">
                             <?php echo csrf_field(); ?>
                             <div class="form-group">
                                 <label>Email Address</label>
@@ -69,7 +69,7 @@ unset($__errorArgs, $__bag); ?>
                                 <button class="btn btn-primary account-btn" type="submit">Login</button>
                             </div>
                             <div class="account-footer">
-                                <p>Don't have an account yet? <a href="<?php echo e(route('register')); ?>">Register</a></p>
+                                <p>Don't have an account yet? <a href="<?php echo e(url('register')); ?>">Register</a></p>
                             </div>
                         </form>
                         <!-- /Account Form -->
